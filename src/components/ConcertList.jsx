@@ -74,23 +74,43 @@ function ConcertList() {
     
 
     return (
-      <div className="carousel">
-        <h2>이주의 공연</h2>
-        <div className="carousel-list">
-            <Slider {...settings}>
-                {events.map(event => (
-                        <div key={event.id} className="box">
-                            <img src={event.imageUrl} alt="대표 이미지 준비 중" />
-                                <div className="event-info">
-                                    <h3>{event.title}</h3>
-                                    <p>{event.date}</p>
-                                    <p>{event.place}</p>
+      <div className="content">
+            <div className="carousel">
+                <h2>이주의 공연</h2>
+                <div className="carousel-list">
+                    <Slider {...settings}>
+                        {events.map(event => (
+                                <div key={event.id} className="box">
+                                    <img src={event.imageUrl} alt="대표 이미지 준비 중" />
+                                        <div className="event-info">
+                                            <h3>{event.title}</h3>
+                                            <p>{event.date}</p>
+                                            <p>{event.place}</p>
+                                        </div>
                                 </div>
-                        </div>
+                            ))}
+                    </Slider>
+                </div>
+            </div>
+
+            <div className="list-container">
+                <h2>전체 공연 목록</h2>
+                <div className="list">
+                    {events.map(event => (
+                        <div key={event.id} className="card">
+                            <img src={event.imageUrl} alt="대표 이미지 준비 중" />
+                            <div className="card-info">
+                                <h3>{event.title}</h3>
+                                <p>{event.date}</p>
+                                <p>{event.place}</p>
+                            </div>
+                            <div className="card-button">
+                                <button>자세히 보기</button>
+                            </div>
+                        </div>    
                     ))}
-            </Slider>
-        </div>
-        
+                </div>
+            </div>
       </div>
     );
 }
